@@ -27,4 +27,11 @@ given input 4 char
 when list getPermutationResult
 
 then return size of 4 char
+
+5.
+given input 0 char
+
+when list getPermutationResult
+
+then return exceptionMessage:"Should input not null"
 ```

@@ -5,10 +5,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Permutation {
+    private static  final String nullPointMessage = "Should input not null";
+
     public static List<String> getPermutationResult(String input) {
 
+            if(input==""){
+                throw new NullPointerException(nullPointMessage);
+            }
+            if(input.length()==1){
+                return Arrays.asList(input);
+            }
 
-        if(input.length()>1){
             List<String> result = new ArrayList<>();
 
             for(int i =0;i<input.length();i++){
@@ -18,8 +25,7 @@ public class Permutation {
                 }
             }
             return result;
-        }
-        return Arrays.asList(input);
+
     }
 
     private static String removeOneChar(String input,int index) {

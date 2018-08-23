@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.fest.assertions.api.Assertions.fail;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+
 
 public class PermutationTest {
     @Test
@@ -35,5 +37,17 @@ public class PermutationTest {
         String input = "abcd";
         List<String> permutationList = Permutation.getPermutationResult(input);
         assertThat(24,is(permutationList.size()));
+    }
+
+    @Test
+    public void should_return_exceptionMessage_when_input_0_char(){
+        String input = "";
+        try {
+            List<String> permutationList = Permutation.getPermutationResult(input);
+           fail("Should input not null");
+
+        }catch (NullPointerException e) {
+            assertThat("Should input not null", is(e.getMessage()));
+        }
     }
 }
