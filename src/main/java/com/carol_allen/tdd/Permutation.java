@@ -10,17 +10,12 @@ public class Permutation {
 
         if(input.length()>1){
             List<String> result = new ArrayList<>();
-            if(input.length()==2){
-                for(int i =0;i<input.length();i++) {
-                    result.add(input.charAt(i) + getPermutationResult(removeOneChar(input, i)).get(0));
-                }
-                return result;
 
-            }
             for(int i =0;i<input.length();i++){
-
-                result.add(input.charAt(i) +getPermutationResult(removeOneChar(input,i)).get(0));
-                result.add(input.charAt(i) +getPermutationResult(removeOneChar(input,i)).get(1));
+                List<String> permutationResult = getPermutationResult(removeOneChar(input, i));
+                for(int j = 0;j<permutationResult.size();j++){
+                    result.add(input.charAt(i) +getPermutationResult(removeOneChar(input,i)).get(j));
+                }
             }
             return result;
         }
