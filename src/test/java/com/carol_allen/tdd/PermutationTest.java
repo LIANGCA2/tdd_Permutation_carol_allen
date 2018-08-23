@@ -22,4 +22,11 @@ public class PermutationTest {
         List<String> permutationList = Permutation.getPermutationResult(input);
         assertThat(Arrays.asList("ab","ba"),is(permutationList));
     }
+
+    @Test
+    public void should_return_abc_acb_bac_bca_cab_cba_when_input_abc(){
+        String input = "abc";
+        List<String> permutationList = Permutation.getPermutationResult(input);
+        assertThat(Arrays.asList("abc","acb","bac","bca","cab","cba"),is(permutationList));
+    }
 }
