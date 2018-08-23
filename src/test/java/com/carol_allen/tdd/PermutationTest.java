@@ -29,4 +29,11 @@ public class PermutationTest {
         List<String> permutationList = Permutation.getPermutationResult(input);
         assertThat(Arrays.asList("abc","acb","bac","bca","cab","cba"),is(permutationList));
     }
+
+    @Test
+    public void should_return_24_when_input_abcd(){
+        String input = "abcd";
+        List<String> permutationList = Permutation.getPermutationResult(input);
+        assertThat(24,is(permutationList.size()));
+    }
 }

@@ -14,10 +14,17 @@ when list getPermutationResult
 
 then return getPermutationResult of two char
 
-2.
+3.
 given input three char
 
 when list getPermutationResult
 
 then return getPermutationResult of three char
+
+4.
+given input 4 char
+
+when list getPermutationResult
+
+then return size of 4 char
 ```
