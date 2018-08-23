@@ -15,4 +15,11 @@ public class PermutationTest {
         List<String> permutationList = Permutation.getPermutationResult(input);
         assertThat(Arrays.asList(input),is(permutationList));
     }
+
+    @Test
+    public void should_return_ab_ba_when_input_ab(){
+        String input = "ab";
+        List<String> permutationList = Permutation.getPermutationResult(input);
+        assertThat(Arrays.asList("ab","ba"),is(permutationList));
+    }
 }
