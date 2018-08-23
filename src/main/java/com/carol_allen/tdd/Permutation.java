@@ -7,23 +7,27 @@ import java.util.List;
 public class Permutation {
     public static List<String> getPermutationResult(String input) {
 
-        if(input.length()==2){
-            List<String> result = new ArrayList<>();
-            result.add(input);
-            result.add(  input.substring(1,2)+input.substring(0,1));
-            return result;
 
-        }
-        if(input.length()==3){
+        if(input.length()>1){
             List<String> result = new ArrayList<>();
-            result.add(input);
-            result.add(input.substring(0,1)+input.substring(2,3)+ input.substring(1,2));
-            result.add(input.substring(1,2)+input.substring(0,1)+input.substring(2,3));
-            result.add(input.substring(1,2)+input.substring(2,3)+input.substring(0,1));
-            result.add(input.substring(2,3)+input.substring(0,1)+input.substring(1,2));
-            result.add(input.substring(2,3)+input.substring(1,2)+input.substring(0,1));
+            if(input.length()==2){
+                for(int i =0;i<input.length();i++) {
+                    result.add(input.charAt(i) + getPermutationResult(removeOneChar(input, i)).get(0));
+                }
+                return result;
+
+            }
+            for(int i =0;i<input.length();i++){
+
+                result.add(input.charAt(i) +getPermutationResult(removeOneChar(input,i)).get(0));
+                result.add(input.charAt(i) +getPermutationResult(removeOneChar(input,i)).get(1));
+            }
             return result;
         }
         return Arrays.asList(input);
+    }
+
+    private static String removeOneChar(String input,int index) {
+        return input.substring(0, index) + input.substring(index+1);
     }
 }
